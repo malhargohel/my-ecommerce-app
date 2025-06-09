@@ -6,8 +6,16 @@ import { Upload, X, ShoppingCart, Plus, Minus, Trash2, Package, Users, DollarSig
 
 // --- Firebase Configuration ---
 // These variables are provided by the environment and should not be changed.
-const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+// --- Firebase Configuration ---
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
+const appId = import.meta.env.VITE_FIREBASE_PROJECT_ID || 'default-app-id';
 
 // --- Main App Component ---
 export default function App() {
